@@ -4,7 +4,6 @@ export default class Product extends React.Component{
     constructor(){
         super();
         this.state = {
-            ready: false,
             currentProduct: {},
             link: "None",
             name: "None",
@@ -19,18 +18,20 @@ export default class Product extends React.Component{
                 link: this.props.metaProduct.link,
                 name: this.props.metaProduct.name,
                 price: this.props.product.price,
-                imageLink: this.props.product.product_image,
-                ready: true
+                imageLink: this.props.product.product_image
             })
         }
     }
 
     render(){
         return(
-            <div>
-               <p>Name: {this.state.name}</p>
-               <p>Price: {this.state.price}</p>
-               <img src={this.state.imageLink}/>
+            <div className="text-center">
+                <a href={this.state.link} target="_blank">
+                    <img src={this.state.imageLink} height="350px" alt={this.state.name + "_pic"}/>
+                <div><strong>{this.state.name}</strong></div>
+                <div><i>${this.state.price}</i></div>
+                </a>
+                <br/>
             </div>
         )
     }
